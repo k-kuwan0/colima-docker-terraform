@@ -1,0 +1,11 @@
+services:
+  terraform-runner:
+    container_name: terraform-runner
+    build:
+      context: ./dockerfiles
+      dockerfile: terraform-runner/Dockerfile
+    volumes:
+      - ./terraform-runner:/terraform-runner
+      - ./.aws:/root/.aws
+    entrypoint: sh
+    tty: true
